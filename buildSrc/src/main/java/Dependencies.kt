@@ -1,0 +1,22 @@
+object Dependencies {
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val kotlin_serializer =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlin_serializer}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofit_converter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hilt_kapt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val room = "androidx.room:room-compiler:${Versions.room}"
+    const val room_ktx = "androidx.room:room-ktx:${Versions.room}"
+    const val room_paging = "androidx.room:room-paging:${Versions.room}"
+    const val saved_state_view_model = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.life_cycle}"
+    const val view_model = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.life_cycle}"
+    const val life_cycle = "androidx.lifecycle:lifecycle-common-java8:${Versions.life_cycle}"
+    const val life_cycle_kapt = "androidx.lifecycle:lifecycle-compiler:${Versions.life_cycle}"
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
+    const val paging_test = "androidx.paging:paging-common:${Versions.paging}"
+    const val okhttp = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+    const val coroutine_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutine_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+}
