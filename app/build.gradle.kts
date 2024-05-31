@@ -60,6 +60,9 @@ android {
     room {
         schemaDirectory("$projectDir/schemas")
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 kapt {
@@ -89,6 +92,7 @@ dependencies {
 
 
     implementation(Dependencies.kotlin_serializer)
+    implementation(Dependencies.kotlin)
     implementation (Dependencies.gson)
     implementation(Dependencies.hilt)
     kapt(Dependencies.hilt_kapt)
@@ -106,4 +110,6 @@ dependencies {
     implementation(Dependencies.okhttp)
     implementation(Dependencies.coroutine_core)
     implementation(Dependencies.coroutine_android)
+    implementation(Dependencies.glide)
+    annotationProcessor(Dependencies.glide_annotation_processor)
 }

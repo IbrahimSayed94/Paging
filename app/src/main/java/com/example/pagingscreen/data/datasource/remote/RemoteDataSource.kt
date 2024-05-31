@@ -1,12 +1,17 @@
-package com.example.pagingscreen.data.datasource
+package com.example.pagingscreen.data.datasource.remote
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.pagingscreen.data.datasource.local.ItemDao
 import com.example.pagingscreen.network.ApiService
-import com.example.pagingscreen.network.Item
+import com.example.pagingscreen.data.datasource.local.Item
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
-class RemoteDataSource (
+@Singleton
+
+class RemoteDataSource @Inject constructor(
     private val apiService: ApiService,
     private val itemDao: ItemDao
 ) : PagingSource<Int, Item>() {

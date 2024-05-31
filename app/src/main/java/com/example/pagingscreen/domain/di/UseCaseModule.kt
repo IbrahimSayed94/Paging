@@ -1,7 +1,7 @@
-package com.example.pagingscreen.data.repository.di
+package com.example.pagingscreen.domain.di
 
 import com.example.pagingscreen.data.repository.ItemRepository
-import com.example.pagingscreen.network.ApiService
+import com.example.pagingscreen.domain.usecase.GetItemsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,11 +10,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+class UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideItemRepository(apiService: ApiService): ItemRepository {
-        return ItemRepository(apiService)
+    fun provideGetItemUseCase(itemRepository: ItemRepository) : GetItemsUseCase{
+        return GetItemsUseCase(itemRepository)
     }
 }

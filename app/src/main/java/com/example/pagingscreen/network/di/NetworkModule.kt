@@ -2,10 +2,8 @@ package com.example.pagingscreen.network.di
 
 import android.content.Context
 import android.net.ConnectivityManager
-import androidx.room.Room
-import com.example.pagingscreen.data.datasource.ItemDao
 import com.example.pagingscreen.network.ApiService
-import com.example.pagingscreen.network.AppDatabase
+import com.example.pagingscreen.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +17,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
 
     @Provides
     @Singleton
@@ -32,7 +30,7 @@ object AppModule {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl("https://api.example.com/")
+            .baseUrl(Constants.BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -49,20 +47,4 @@ object AppModule {
     fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager {
         return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
-
-    @Provides
-    @Singleton
-    fun provideAppDatabase(@ApplicationContext appContext: Context): AppDatabase {
-        return Room.databaseBuilder(
-            appContext,
-            AppDatabase::class.java,
-            "app-database"
-        ).build()
-    }
-
-    @Provides
-    fun provideItemDao(database: AppDatabase): ItemDao {
-        return database.itemDao()
-    }
-
 }

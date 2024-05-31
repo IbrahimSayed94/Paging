@@ -19,4 +19,6 @@ object Dependencies {
     const val okhttp = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     const val coroutine_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutine_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_annotation_processor = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }

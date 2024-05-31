@@ -4,10 +4,10 @@ import android.net.ConnectivityManager
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.example.pagingscreen.data.datasource.ItemDao
-import com.example.pagingscreen.data.datasource.RemoteDataSource
+import com.example.pagingscreen.data.datasource.local.ItemDao
+import com.example.pagingscreen.data.datasource.remote.RemoteDataSource
 import com.example.pagingscreen.network.ApiService
-import com.example.pagingscreen.network.Item
+import com.example.pagingscreen.data.datasource.local.Item
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

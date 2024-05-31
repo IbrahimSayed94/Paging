@@ -1,18 +1,18 @@
 package com.example.pagingscreen.presentation.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pagingscreen.R
-import com.example.pagingscreen.network.Item
+import com.bumptech.glide.Glide
+import com.example.pagingscreen.data.datasource.local.Item
+import com.example.pagingscreen.databinding.ItemViewBinding
 
 class ItemAdapter : PagingDataAdapter<Item, ItemAdapter.ItemViewHolder>(ItemDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
-        return ItemViewHolder(view)
+        val binding = ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
@@ -20,9 +20,12 @@ class ItemAdapter : PagingDataAdapter<Item, ItemAdapter.ItemViewHolder>(ItemDiff
         holder.bind(item)
     }
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ItemViewHolder(private val binding: ItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Item?) {
-            // Bind data to the view
+            Glide.with(binding.imageview.context)
+                .load(item?.imageUrl)
+                .into(binding.imageview)
+            binding.textview.text = item?.name
         }
     }
 
