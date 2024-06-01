@@ -112,4 +112,7 @@ dependencies {
     implementation(Dependencies.coroutine_android)
     implementation(Dependencies.glide)
     annotationProcessor(Dependencies.glide_annotation_processor)
+    testImplementation(Dependencies.mockk)
+    testImplementation(Dependencies.kotlin_testing)
+    testImplementation(Dependencies.paging_testing)
 }

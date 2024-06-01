@@ -3,7 +3,7 @@ package com.example.pagingscreen.data.di
 import android.content.Context
 import androidx.room.Room
 import com.example.pagingscreen.data.datasource.local.AppDatabase
-import com.example.pagingscreen.data.datasource.local.ItemDao
+import com.example.pagingscreen.data.datasource.local.ArticleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +26,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideItemDao(database: AppDatabase): ItemDao {
-        return database.itemDao()
+    fun provideItemDao(database: AppDatabase): ArticleDao {
+        return database.articleDao()
     }
 }

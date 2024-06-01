@@ -4,12 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.PagingData
-import androidx.recyclerview.widget.RecyclerView
-import com.example.pagingscreen.R
-import com.example.pagingscreen.data.datasource.local.Item
 import com.example.pagingscreen.databinding.ActivityListBinding
-import com.example.pagingscreen.presentation.viewmodel.ItemViewModel
+import com.example.pagingscreen.presentation.viewmodel.ArticlesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -17,8 +13,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class ListActivity : AppCompatActivity() {
 
-    private val viewModel: ItemViewModel by viewModels()
-    private lateinit var adapter: ItemAdapter
+    private val viewModel: ArticlesViewModel by viewModels()
+    private lateinit var adapter: ArticleAdapter
     private lateinit var binding : ActivityListBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,13 +27,13 @@ class ListActivity : AppCompatActivity() {
     }
 
     private fun initList(){
-        adapter = ItemAdapter()
+        adapter = ArticleAdapter()
         binding.recyclerView.adapter = adapter
     }
 
     private fun setData(){
         lifecycleScope.launch {
-            viewModel.items.collectLatest { pagingData ->
+            viewModel.articles.collectLatest { pagingData ->
                 adapter.submitData(pagingData)
             }
         }

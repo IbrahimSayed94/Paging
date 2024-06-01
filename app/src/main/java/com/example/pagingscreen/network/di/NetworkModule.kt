@@ -9,6 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,8 +26,20 @@ object NetworkModule {
         val logging = HttpLoggingInterceptor().apply {
             setLevel(HttpLoggingInterceptor.Level.BODY)
         }
+
+        val headerInterceptor = Interceptor { chain ->
+            val original = chain.request()
+            val request = original.newBuilder()
+                .header("X-RapidAPI-Key", Constants.API_KEY)
+                .header("X-RapidAPI-Host",  Constants.HOST)
+                .method(original.method, original.body)
+                .build()
+            chain.proceed(request)
+        }
+
         val client = OkHttpClient.Builder()
             .addInterceptor(logging)
+            .addInterceptor(headerInterceptor)
             .build()
 
         return Retrofit.Builder()
@@ -35,6 +48,7 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
 
     @Provides
     @Singleton

@@ -21,4 +21,7 @@ object Dependencies {
     const val coroutine_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glide_annotation_processor = "com.github.bumptech.glide:compiler:${Versions.glide}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val kotlin_testing = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlin_testing}"
+    const val paging_testing = "androidx.paging:paging-common-ktx:${Versions.paging_testing}"
 }

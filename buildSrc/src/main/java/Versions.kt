@@ -10,4 +10,7 @@ object Versions {
     const val okhttp = "4.9.0"
     const val coroutines = "1.4.2"
     const val glide = "4.12.0"
+    const val mockk = "1.12.0"
+    const val kotlin_testing = "1.6.0"
+    const val paging_testing = "3.1.0"
 }

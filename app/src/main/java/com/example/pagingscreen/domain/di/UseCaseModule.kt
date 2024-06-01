@@ -1,7 +1,7 @@
 package com.example.pagingscreen.domain.di
 
-import com.example.pagingscreen.data.repository.ItemRepository
-import com.example.pagingscreen.domain.usecase.GetItemsUseCase
+import com.example.pagingscreen.data.repository.ArticleRepository
+import com.example.pagingscreen.domain.usecase.GetArticlesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ class UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideGetItemUseCase(itemRepository: ItemRepository) : GetItemsUseCase{
-        return GetItemsUseCase(itemRepository)
+    fun provideGetArticlesUseCase(articleRepository: ArticleRepository) : GetArticlesUseCase{
+        return GetArticlesUseCase(articleRepository)
     }
 }
